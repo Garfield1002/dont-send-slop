@@ -6,25 +6,25 @@
     <title>Stop sending slop</title>
     <meta
       name="description"
-      content="Slop asks for someone’s attention without giving them anything worth it. Three ways it happens, and what to send instead."
+      content="Slop asks for someone's attention without giving them anything worth it. Three ways it happens, and what to send instead."
     />
     <meta property="og:title" content="Stop sending slop" />
     <meta
       property="og:description"
-      content="Slop asks for someone’s attention without giving them anything worth it."
+      content="Slop asks for someone's attention without giving them anything worth it."
     />
     <style>
       :root {
-        --bg: #ffffff;
+        --bg: #fbf8f1;
         --bg2: #f3f4f7;
         --fg: #0f1222;
         --dim: #5a6074;
-        --accent: #4338ca;
+        --accent: #3f5f45;
         --bad: #dc2626;
-        --ok: #15803d;
+        --ok: #0f1222;
         --card: #ffffff;
         --cardfg: #1a1d2b;
-        --cardline: #e5e7ee;
+        --cardline: #e4ebdf;
         --serif: var(--sans);
         --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       }
@@ -114,7 +114,7 @@
       }
       section {
         padding: 4.5rem 0;
-        border-top: 1px solid #eceef3;
+        border-top: 1px solid #bacdb0;
       }
       .lead {
         color: var(--dim);
@@ -154,7 +154,7 @@
         font-size: 0.9rem;
         line-height: 1.5;
         border: 1px solid var(--cardline);
-        box-shadow: 0 8px 24px rgba(25, 28, 38, 0.07);
+        box-shadow: 0 8px 24px rgba(63, 95, 69, 0.08);
       }
       .card .meta {
         color: #7a7f8c;
@@ -196,7 +196,7 @@
       .card .code {
         font-family: ui-monospace, "SF Mono", Menlo, monospace;
         font-size: 0.8rem;
-        background: #f0eee8;
+        background: #eef3eb;
         padding: 0.4rem 0.6rem;
         border-radius: 0.35rem;
         margin-bottom: 0.7rem;
@@ -223,13 +223,13 @@
         place-items: center;
       }
       .a {
-        background: #5b6b9a;
+        background: #729b79;
       }
       .b {
-        background: #c0623f;
+        background: #a8697f;
       }
       .c {
-        background: #3f8f7a;
+        background: #3f5f45;
       }
       .who {
         font-weight: 700;
@@ -254,7 +254,7 @@
 
       footer {
         padding: 4.5rem 0 0;
-        border-top: 1px solid #eceef3;
+        border-top: 1px solid #bacdb0;
       }
       footer p {
         text-wrap: balance;
@@ -292,13 +292,14 @@
         <p>
           Slop is anything that
           <strong
-            >asks for someone’s attention without giving them anything worth
+            >asks for someone's attention without giving them anything worth
             it</strong
-          >. It’s not just a waste of time, it’s disrespectful. The fix isn’t always a better message.
+          >. It's not just a waste of time, it's disrespectful. The fix isn't
+          always a better message.
         </p>
         <ul class="some">
           <li>Sometimes, <span>write less.</span></li>
-          <li>Sometimes, <span>say “I don’t know.”</span></li>
+          <li>Sometimes, <span>say “I don't know.”</span></li>
           <li>Sometimes, <span>say nothing at all.</span></li>
         </ul>
       </header>
@@ -307,17 +308,17 @@
         <h2><span class="n">1.</span>Add something</h2>
         <p class="lead">
           What counts is what <em>you</em> bring to the conversation. Text you
-          didn’t select, weigh or apply isn’t a contribution, however long it is
+          didn't write or weigh isn't a contribution, however long it is
           or however long it took.
         </p>
         <div class="pair">
           <div class="bad">
-            <p class="label">✕ Don’t</p>
+            <p class="label">✕ Don't</p>
             <div class="card">
               <div class="msg">
-                <div class="av c">L</div>
+                <div class="av c">T</div>
                 <div>
-                  <span class="who">Lea</span>
+                  <span class="who">Tim</span>
                   <p>
                     we need a database for the new service, Postgres or Mongo?
                     opinions?
@@ -330,7 +331,7 @@
                   <span class="who">Ray</span>
                   <div class="gen">
                     <p>
-                      Great question! Both are excellent choices. Here’s a
+                      Great question! Both are excellent choices. Here's a
                       breakdown:
                     </p>
                     <p><strong>PostgreSQL</strong></p>
@@ -348,9 +349,9 @@
             <p class="label">✓ Do</p>
             <div class="card">
               <div class="msg">
-                <div class="av c">L</div>
+                <div class="av c">T</div>
                 <div>
-                  <span class="who">Lea</span>
+                  <span class="who">Tim</span>
                   <p>
                     we need a database for the new service, Postgres or Mongo?
                     opinions?
@@ -362,7 +363,7 @@
                 <div>
                   <span class="who">Ray</span>
                   <p>
-                    No real opinion, I’ve never run either in prod. Sam has
+                    No real opinion, I've never run either in prod. Sam has
                     though, worth asking her.
                   </p>
                 </div>
@@ -371,9 +372,9 @@
           </div>
         </div>
         <p class="why">
-          Lea could have asked an AI herself. She wanted Ray’s opinion,
-          <strong>and didn’t get it.</strong> Her second reply admits what she
-          doesn’t know, and still helps.
+          Tim could have asked an AI directly, but wanted Ray's opinion,
+          <strong>and didn't get it.</strong> Ray's second reply admits what
+          Ray doesn't know, and still helps.
         </p>
       </section>
 
@@ -381,17 +382,17 @@
         <h2><span class="n">2.</span>Stand behind it</h2>
         <p class="lead">
           People engage with what you send as yours: they ask why, push back,
-          build on it. If you can’t answer, there’s no one for them to talk to.
+          build on it. If you can't answer, there's no one for them to talk to.
         </p>
         <div class="pair">
           <div class="bad">
-            <p class="label">✕ Don’t</p>
+            <p class="label">✕ Don't</p>
             <div class="card">
               <div class="msg">
                 <div class="av c">N</div>
                 <div>
                   <span class="who">Nina</span>
-                  <p>here’s the plan for friday</p>
+                  <p>here's the plan for friday</p>
                   <div class="code">📄 migration-plan.md</div>
                 </div>
               </div>
@@ -400,7 +401,7 @@
                 <div>
                   <span class="who">Henry</span>
                   <p>
-                    why freeze writes before the backup? that’s 2h of downtime
+                    why freeze writes before the backup? that's 2h of downtime
                   </p>
                 </div>
               </div>
@@ -430,7 +431,7 @@
                 <div>
                   <span class="who">Henry</span>
                   <p>
-                    why freeze writes before the backup? that’s 2h of downtime
+                    why freeze writes before the backup? that's 2h of downtime
                   </p>
                 </div>
               </div>
@@ -448,11 +449,11 @@
           </div>
         </div>
         <p class="why">
-          Nina’s plan may be perfectly sound. But Henry can’t discuss it with
+          Nina's plan may be perfectly sound. But Henry can't discuss it with
           her, only with a model through her.
           <strong
-            >If you can’t answer the first question about what you sent, you
-            weren’t ready to send it.</strong
+            >If you can't answer the first question about what you sent, you
+            weren't ready to send it.</strong
           >
         </p>
       </section>
@@ -461,13 +462,12 @@
         <h2><span class="n">3.</span>Make it yours</h2>
         <p class="lead">
           The way a message looks says something before anyone reads it. Taking
-          the time to write or rework something shows you engaged with it.
-          Obviously generated text says the opposite,
-          <em>even when every word of it is right</em>.
+          the time to write or rework it shows you engaged with it.
+          Obviously generated text says the opposite, <em>even when every word of it is right</em>.
         </p>
         <div class="pair">
           <div class="bad">
-            <p class="label">✕ Don’t</p>
+            <p class="label">✕ Don't</p>
             <div class="card">
               <div class="msg">
                 <div class="av c">J</div>
@@ -483,7 +483,7 @@
                 <div>
                   <span class="who">Kim</span>
                   <div class="gen">
-                    <p>Great cover letter! Here’s some feedback:</p>
+                    <p>Great cover letter! Here's some feedback:</p>
                     <p><strong>✅ Strengths</strong></p>
                     <ul>
                       <li>Clear and professional tone</li>
@@ -494,7 +494,7 @@
                       <li>Consider quantifying your achievements</li>
                       <li>Tailor the closing to the company</li>
                     </ul>
-                    <p>Overall, it’s a compelling letter. Good luck! 🚀</p>
+                    <p>Overall, it's a compelling letter. Good luck! 🚀</p>
                   </div>
                 </div>
               </div>
@@ -517,7 +517,7 @@
                 <div>
                   <span class="who">Kim</span>
                   <p>
-                    Read it! The middle paragraph is the strong part, I’d open
+                    Read it! The middle paragraph is the strong part, I'd open
                     with the migration project. The last paragraph could go to
                     any company, though.
                   </p>
@@ -527,20 +527,20 @@
           </div>
         </div>
         <p class="why">
-          Jules can’t tell which points Kim actually holds, or whether Kim read
-          the letter at all. The real message isn’t the feedback, it’s
-          <strong>“this wasn’t worth my time”</strong>.
+          Jules can't tell which points Kim actually holds, or whether Kim read
+          the letter at all. What comes across isn't the feedback, it's
+          <strong>that Kim didn't care</strong>.
         </p>
       </section>
 
       <footer>
         <p>
-          Respect other people’s time, <span class="you">don’t send slop.</span>
+          Respect other people's time, <span class="you">don't send slop.</span>
         </p>
         <p class="small">Already sent some? Apologize and move on.</p>
         <p class="small">
-          Why it’s a matter of respect, in a short essay:
-          <a href="index.html"><em>Worth Their Time</em></a
+          Why it's a matter of respect, in a short essay:
+          <a href="essay.html"><em>Worth Their Time</em></a
           >.
         </p>
       </footer>
