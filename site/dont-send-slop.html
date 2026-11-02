@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stop sending slop</title>
+    <meta
+      name="description"
+      content="Slop asks for someone’s attention without giving them anything worth it. Three ways it happens, and what to send instead."
+    />
+    <meta property="og:title" content="Stop sending slop" />
+    <meta
+      property="og:description"
+      content="Slop asks for someone’s attention without giving them anything worth it."
+    />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --bg2: #f3f4f7;
+        --fg: #0f1222;
+        --dim: #5a6074;
+        --accent: #4338ca;
+        --bad: #dc2626;
+        --ok: #15803d;
+        --card: #ffffff;
+        --cardfg: #1a1d2b;
+        --cardline: #e5e7ee;
+        --serif: var(--sans);
+        --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        background: var(--bg);
+        color: var(--fg);
+      }
+      body {
+        margin: 0;
+        font-family: var(--sans);
+        font-size: 1.05rem;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      main {
+        max-width: 44rem;
+        margin: 0 auto;
+        padding: 0 1.5rem 5rem;
+      }
+      em {
+        font-style: italic;
+      }
+      h1,
+      h2 {
+        text-wrap: balance;
+      }
+      p,
+      li {
+        text-wrap: pretty;
+      }
+
+      /* hero */
+      .hero {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 6rem 0 4rem;
+      }
+      h1 {
+        font-family: var(--serif);
+        font-weight: 800;
+        font-size: clamp(2.8rem, 8vw, 5.8rem);
+        line-height: 1.02;
+        letter-spacing: -0.04em;
+        margin: 0;
+      }
+      h1 .insult {
+        color: var(--accent);
+      }
+      .hero p {
+        font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+        color: var(--dim);
+        margin: 2rem 0 0;
+        line-height: 1.5;
+      }
+      .hero p strong {
+        color: var(--fg);
+        font-weight: 600;
+      }
+      .some {
+        list-style: none;
+        padding: 0;
+        margin: 1.25rem 0 0;
+        font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+        color: var(--dim);
+        line-height: 1.5;
+      }
+      .some li span {
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      h2 {
+        font-family: var(--serif);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        font-size: clamp(1.9rem, 4vw, 2.7rem);
+        line-height: 1.1;
+        margin: 0 0 0.75rem;
+      }
+      h2 .n {
+        color: var(--accent);
+        margin-right: 0.3em;
+      }
+      section {
+        padding: 4.5rem 0;
+        border-top: 1px solid #eceef3;
+      }
+      .lead {
+        color: var(--dim);
+        margin: 0 0 2.5rem;
+        font-size: 1.15rem;
+      }
+
+      /* examples */
+      .pair {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+      @media (max-width: 50rem) {
+        .pair {
+          grid-template-columns: 1fr;
+        }
+      }
+      .label {
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin: 0 0 0.6rem;
+      }
+      .bad .label {
+        color: var(--bad);
+      }
+      .good .label {
+        color: var(--ok);
+      }
+      .card {
+        background: var(--card);
+        color: var(--cardfg);
+        border-radius: 0.75rem;
+        padding: 1.1rem 1.25rem;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        border: 1px solid var(--cardline);
+        box-shadow: 0 8px 24px rgba(25, 28, 38, 0.07);
+      }
+      .card .meta {
+        color: #7a7f8c;
+        font-size: 0.78rem;
+        margin-bottom: 0.4rem;
+      }
+      .card .title {
+        font-weight: 700;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+      .card .badge {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 600;
+        padding: 0.05rem 0.5rem;
+        border-radius: 1rem;
+        background: #dff3e4;
+        color: #1d6b3a;
+        margin-right: 0.4rem;
+      }
+      .card ol,
+      .card ul {
+        margin: 0.3rem 0 0;
+        padding-left: 1.2rem;
+      }
+      .card p,
+      .card li {
+        text-wrap: wrap;
+      }
+      .card li {
+        margin: 0.15rem 0;
+      }
+      .card .more {
+        color: #7a7f8c;
+        font-style: italic;
+        margin-top: 0.4rem;
+      }
+      .card .code {
+        font-family: ui-monospace, "SF Mono", Menlo, monospace;
+        font-size: 0.8rem;
+        background: #f0eee8;
+        padding: 0.4rem 0.6rem;
+        border-radius: 0.35rem;
+        margin-bottom: 0.7rem;
+      }
+      .msg {
+        display: grid;
+        grid-template-columns: 1.9rem 1fr;
+        gap: 0.6rem;
+        padding: 0.55rem 0;
+        border-top: 1px solid var(--cardline);
+      }
+      .msg:first-of-type {
+        border-top: 0;
+        padding-top: 0;
+      }
+      .av {
+        width: 1.9rem;
+        height: 1.9rem;
+        border-radius: 50%;
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.8rem;
+        display: grid;
+        place-items: center;
+      }
+      .a {
+        background: #5b6b9a;
+      }
+      .b {
+        background: #c0623f;
+      }
+      .c {
+        background: #3f8f7a;
+      }
+      .who {
+        font-weight: 700;
+      }
+      .msg p {
+        margin: 0.1rem 0 0;
+      }
+      .gen strong {
+        font-weight: 700;
+      }
+      .gen p {
+        margin: 0.35rem 0 0;
+      }
+      .why {
+        color: var(--dim);
+        margin: 1.5rem 0 0;
+      }
+      .why strong {
+        color: var(--fg);
+        font-weight: 600;
+      }
+
+      footer {
+        padding: 4.5rem 0 0;
+        border-top: 1px solid #eceef3;
+      }
+      footer p {
+        text-wrap: balance;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+        line-height: 1.2;
+        margin: 0 0 1rem;
+      }
+      footer .you {
+        color: var(--accent);
+      }
+      footer .small {
+        font-weight: 400;
+        letter-spacing: normal;
+        font-family: var(--sans);
+        font-size: 1rem;
+        color: var(--dim);
+      }
+      a {
+        color: var(--fg);
+        text-decoration-color: var(--accent);
+        text-underline-offset: 0.2em;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header class="hero">
+        <h1>
+          <span id="w1">Stop</span> sending<br /><span class="insult"
+            ><span id="w2">slop</span>.</span
+          >
+        </h1>
+        <p>
+          Slop is anything that
+          <strong
+            >asks for someone’s attention without giving them anything worth
+            it</strong
+          >. It’s not just a waste of time, it’s disrespectful. The fix isn’t always a better message.
+        </p>
+        <ul class="some">
+          <li>Sometimes, <span>write less.</span></li>
+          <li>Sometimes, <span>say “I don’t know.”</span></li>
+          <li>Sometimes, <span>say nothing at all.</span></li>
+        </ul>
+      </header>
+
+      <section>
+        <h2><span class="n">1.</span>Add something</h2>
+        <p class="lead">
+          What counts is what <em>you</em> bring to the conversation. Text you
+          didn’t select, weigh or apply isn’t a contribution, however long it is
+          or however long it took.
+        </p>
+        <div class="pair">
+          <div class="bad">
+            <p class="label">✕ Don’t</p>
+            <div class="card">
+              <div class="msg">
+                <div class="av c">L</div>
+                <div>
+                  <span class="who">Lea</span>
+                  <p>
+                    we need a database for the new service, Postgres or Mongo?
+                    opinions?
+                  </p>
+                </div>
+              </div>
+              <div class="msg">
+                <div class="av b">R</div>
+                <div>
+                  <span class="who">Ray</span>
+                  <div class="gen">
+                    <p>
+                      Great question! Both are excellent choices. Here’s a
+                      breakdown:
+                    </p>
+                    <p><strong>PostgreSQL</strong></p>
+                    <ul>
+                      <li>Strong consistency and ACID compliance</li>
+                      <li>Rich querying with SQL</li>
+                    </ul>
+                    <p class="more">[...]</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="good">
+            <p class="label">✓ Do</p>
+            <div class="card">
+              <div class="msg">
+                <div class="av c">L</div>
+                <div>
+                  <span class="who">Lea</span>
+                  <p>
+                    we need a database for the new service, Postgres or Mongo?
+                    opinions?
+                  </p>
+                </div>
+              </div>
+              <div class="msg">
+                <div class="av b">R</div>
+                <div>
+                  <span class="who">Ray</span>
+                  <p>
+                    No real opinion, I’ve never run either in prod. Sam has
+                    though, worth asking her.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="why">
+          Lea could have asked an AI herself. She wanted Ray’s opinion,
+          <strong>and didn’t get it.</strong> Her second reply admits what she
+          doesn’t know, and still helps.
+        </p>
+      </section>
+
+      <section>
+        <h2><span class="n">2.</span>Stand behind it</h2>
+        <p class="lead">
+          People engage with what you send as yours: they ask why, push back,
+          build on it. If you can’t answer, there’s no one for them to talk to.
+        </p>
+        <div class="pair">
+          <div class="bad">
+            <p class="label">✕ Don’t</p>
+            <div class="card">
+              <div class="msg">
+                <div class="av c">N</div>
+                <div>
+                  <span class="who">Nina</span>
+                  <p>here’s the plan for friday</p>
+                  <div class="code">📄 migration-plan.md</div>
+                </div>
+              </div>
+              <div class="msg">
+                <div class="av a">H</div>
+                <div>
+                  <span class="who">Henry</span>
+                  <p>
+                    why freeze writes before the backup? that’s 2h of downtime
+                  </p>
+                </div>
+              </div>
+              <div class="msg">
+                <div class="av c">N</div>
+                <div>
+                  <span class="who">Nina</span>
+                  <p>good point, let me ask AI</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="good">
+            <p class="label">✓ Do</p>
+            <div class="card">
+              <div class="msg">
+                <div class="av c">N</div>
+                <div>
+                  <span class="who">Nina</span>
+                  <p>
+                    plan for friday: freeze writes, back up, migrate (~2h down)
+                  </p>
+                </div>
+              </div>
+              <div class="msg">
+                <div class="av a">H</div>
+                <div>
+                  <span class="who">Henry</span>
+                  <p>
+                    why freeze writes before the backup? that’s 2h of downtime
+                  </p>
+                </div>
+              </div>
+              <div class="msg">
+                <div class="av c">N</div>
+                <div>
+                  <span class="who">Nina</span>
+                  <p>
+                    otherwise the backup misses the last writes. if 2h is too
+                    long we can do it in two passes
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="why">
+          Nina’s plan may be perfectly sound. But Henry can’t discuss it with
+          her, only with a model through her.
+          <strong
+            >If you can’t answer the first question about what you sent, you
+            weren’t ready to send it.</strong
+          >
+        </p>
+      </section>
+
+      <section>
+        <h2><span class="n">3.</span>Make it yours</h2>
+        <p class="lead">
+          The way a message looks says something before anyone reads it. Taking
+          the time to write or rework something shows you engaged with it.
+          Obviously generated text says the opposite,
+          <em>even when every word of it is right</em>.
+        </p>
+        <div class="pair">
+          <div class="bad">
+            <p class="label">✕ Don’t</p>
+            <div class="card">
+              <div class="msg">
+                <div class="av c">J</div>
+                <div>
+                  <span class="who">Jules</span>
+                  <p>
+                    could you look at my cover letter before I send it tonight?
+                  </p>
+                </div>
+              </div>
+              <div class="msg">
+                <div class="av a">K</div>
+                <div>
+                  <span class="who">Kim</span>
+                  <div class="gen">
+                    <p>Great cover letter! Here’s some feedback:</p>
+                    <p><strong>✅ Strengths</strong></p>
+                    <ul>
+                      <li>Clear and professional tone</li>
+                      <li>Strong opening that grabs attention</li>
+                    </ul>
+                    <p><strong>🔧 Areas for improvement</strong></p>
+                    <ul>
+                      <li>Consider quantifying your achievements</li>
+                      <li>Tailor the closing to the company</li>
+                    </ul>
+                    <p>Overall, it’s a compelling letter. Good luck! 🚀</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="good">
+            <p class="label">✓ Do</p>
+            <div class="card">
+              <div class="msg">
+                <div class="av c">J</div>
+                <div>
+                  <span class="who">Jules</span>
+                  <p>
+                    could you look at my cover letter before I send it tonight?
+                  </p>
+                </div>
+              </div>
+              <div class="msg">
+                <div class="av a">K</div>
+                <div>
+                  <span class="who">Kim</span>
+                  <p>
+                    Read it! The middle paragraph is the strong part, I’d open
+                    with the migration project. The last paragraph could go to
+                    any company, though.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="why">
+          Jules can’t tell which points Kim actually holds, or whether Kim read
+          the letter at all. The real message isn’t the feedback, it’s
+          <strong>“this wasn’t worth my time”</strong>.
+        </p>
+      </section>
+
+      <footer>
+        <p>
+          Respect other people’s time, <span class="you">don’t send slop.</span>
+        </p>
+        <p class="small">Already sent some? Apologize and move on.</p>
+        <p class="small">
+          Why it’s a matter of respect, in a short essay:
+          <a href="index.html"><em>Worth Their Time</em></a
+          >.
+        </p>
+      </footer>
+    </main>
+    <script>
+      // Scale the second title line so "slop" is exactly as wide as "Stop".
+      function alignTitle() {
+        var line = document.querySelector("h1 .insult");
+        line.style.fontSize = "";
+        var r =
+          document.getElementById("w1").getBoundingClientRect().width /
+          document.getElementById("w2").getBoundingClientRect().width;
+        line.style.fontSize = r + "em";
+      }
+      alignTitle();
+      document.fonts.ready.then(alignTitle);
+      addEventListener("resize", alignTitle);
+    </script>
+  </body>
+</html>
